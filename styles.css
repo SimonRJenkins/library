@@ -32,3 +32,14 @@ p {
     font-size: 18px;
     font-weight: 700;
 }
+
+.book {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid black;
+}
+
+.book p {
+    margin: 0;
+    font-size: 16px;
+}
