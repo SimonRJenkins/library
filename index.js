@@ -88,6 +88,14 @@ function addBookToLibrary() {
 
         remove.style.height = '40px'
 
+        const divElements = [title, author, pages, read]
+
+        divElements.forEach(element => {
+            element.style.color = '#9C6644'
+            element.style.fontWeight = '700'
+        })
+
+
         bookDisplay.appendChild(bookDiv)
 
         remove.addEventListener('click', function () {
