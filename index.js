@@ -1,6 +1,9 @@
 let myBooks = [];
 
-
+window.onload = function () {
+    const newBookBtn = document.getElementById('newBookBtn')
+    newBookBtn.addEventListener('click', addBook)
+}
 
 
 function addBook() {
@@ -44,15 +47,38 @@ function addBookToLibrary() {
         const read = document.createElement('p')
         read.textContent = `Read: ${book.read ? 'Yes' : 'No'}`
 
-        bookDiv.appendChild(title);
-        bookDiv.appendChild(author);
-        bookDiv.appendChild(pages);
-        bookDiv.appendChild(read);
-        bookDisplay.appendChild(bookDiv);
-    }
-}
+        const remove = document.createElement('button')
+        remove.textContent = `Remove Book`
 
-window.onload = function () {
-    const newBookBtn = document.getElementById('newBookBtn')
-    newBookBtn.addEventListener('click', addBook)
+        const nowRead = document.createElement('button')
+        nowRead.textContent = `Read`
+
+
+        bookDiv.appendChild(title)
+        bookDiv.appendChild(author)
+        bookDiv.appendChild(pages)
+        bookDiv.appendChild(read)
+
+        if (!book.read) {
+            bookDiv.appendChild(nowRead)
+        } else {
+            read.textContent = 'Read: Yes'
+        }
+
+        nowRead.addEventListener('click', function () {
+            const readButton = this;
+            readButton.parentNode.removeChild(readButton);
+            read.textContent = 'Read: Yes'
+        })
+
+        bookDiv.appendChild(remove)
+
+        remove.style.height = "40px"
+
+        bookDisplay.appendChild(bookDiv)
+
+        remove.addEventListener('click', function () {
+            bookDisplay.removeChild(bookDiv)
+        })
+    }
 }
