@@ -87,6 +87,7 @@ function addBookToLibrary() {
         bookDiv.appendChild(remove);
 
         remove.style.height = '40px'
+        bookDiv.style.maxWidth = '200px'
 
         const divElements = [title, author, pages, read]
 
